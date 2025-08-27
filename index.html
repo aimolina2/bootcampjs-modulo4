@@ -10,7 +10,7 @@
   <body>
     <main>
       <div class="turno-display">
-        <h1 class="numero-turno" id="turn">01</h1>
+        <h1 class="numero-turno" id="turn">00</h1>
         <p class="texto-turno">Por favor, acérquese al mostrador</p>
       </div>
       <div class="turno-buttons">
@@ -35,7 +35,11 @@
         </button>
       </div>
       <div class="turno-edit">
-        <input type="text" placeholder="Escribe el próximo número" />
+        <input
+          id="custom-turn"
+          type="number"
+          placeholder="Escribe el próximo número"
+        />
         <button id="publish-button" class="button">
           <span class="text-button">Ver en marcador</span>
         </button>

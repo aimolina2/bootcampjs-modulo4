@@ -18,8 +18,12 @@ Tras iniciar el proyecto he maquetado la parte visual tomando como punto de part
 Con toda la parte visual montada trabajé en añadir funcionalidad al proyecto.
 
 1. En la caja principal se muestra el turno.
-2. Al pulsar sobre los botones **Siguiente** o **Anterior** el número mostrado cambia.
-3. El botón **Reset** pone el marcador a _00_.
+2. Al pulsar sobre los botones **Siguiente** o **Anterior** el número mostrado cambia. Para ello inicializamos el marcador en 0 indicando `let turn: number = 0;`, definimos las funciones con las que sumaremos y restaremos 1 y hacemos que se apliquen al hacer click sobre los botones correspondientes.
+3. El botón **Reset** pone el marcador a _0_.
 4. El operario puede decidir que número mostrar escribiéndolo en la caja de texto y publicándolo al hacer click en el botón **Ver en marcador**.
 
 ## 4. Challenge
+
+Para que el marcador use siempre un formato de mínimo 2 números (01, 02, 03,...12,13, etc) utilizamos la funcion `padStar`, con la que definimos el número de caracteres mínimo o longitud y que elemento queremos usar para mostrarlo.
+
+En este caso vamos a incluir `padStart(2, "0");`para que se muestre en el HTML al reflejar el resultado.

@@ -1,40 +1,51 @@
 import "./style.css";
 
-console.log("Hello Typescript!");
-
+// functions
 let turn: number = 0;
 
-function nextTurn() {
-  const takeTurn = document.getElementById("turn");
+function nextTurn(): void {
   if (takeTurn) {
     turn++;
-    takeTurn.innerHTML = turn.toString();
+    takeTurn.innerHTML = turn.toString().padStart(2, "0");
   }
 }
 
-function prevTurn() {
-  const takeTurn = document.getElementById("turn");
-  if (turn <= 0) {
-    return;
-  }
-  if (takeTurn) {
+function prevTurn(): void {
+  if (turn > 0 && takeTurn) {
     turn--;
-    takeTurn.innerHTML = turn.toString();
+    takeTurn.innerHTML = turn.toString().padStart(2, "0");
   }
 }
 
-function resetTurn() {
-  const takeTurn = document.getElementById("turn");
+function resetTurn(): void {
   if (takeTurn) {
     turn = 0;
-    takeTurn.innerHTML = turn.toString();
+    takeTurn.innerHTML = turn.toString().padStart(2, "0");
   }
 }
 
-const nextButton = document.getElementById("next-button");
-const prevButton = document.getElementById("prev-button");
-const resetButton = document.getElementById("reset-button");
+function editTurn(): void {
+  if (customTurn && takeTurn) {
+    const valueTurn = customTurn?.value;
+    turn = +valueTurn;
+    takeTurn.innerHTML = turn.toString().padStart(2, "0");
+  }
+}
 
+// const declaradas para el uso en functions
+const takeTurn = document.getElementById("turn") as HTMLElement;
+const customTurn = document.getElementById("custom-turn") as HTMLInputElement;
+const nextButton = document.getElementById("next-button") as HTMLButtonElement;
+const prevButton = document.getElementById("prev-button") as HTMLButtonElement;
+const resetButton = document.getElementById(
+  "reset-button"
+) as HTMLButtonElement;
+const customButton = document.getElementById(
+  "publish-button"
+) as HTMLButtonElement;
+
+// eventos
 nextButton?.addEventListener("click", () => nextTurn());
 prevButton?.addEventListener("click", () => prevTurn());
 resetButton?.addEventListener("click", () => resetTurn());
+customButton?.addEventListener("click", () => editTurn());
